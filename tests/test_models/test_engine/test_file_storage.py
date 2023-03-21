@@ -106,3 +106,25 @@ class test_fileStorage(unittest.TestCase):
         """ FileStorage object storage created """
         from models.engine.file_storage import FileStorage
         self.assertEqual(type(storage), FileStorage)
+
+    def test_improved_all_method(self):
+        """Tests optional filtering based on class"""
+        from models.state import State
+        from models.engine.file_storage import FileStorage
+        fs = FileStorage()
+        count = len(fs.all(State))
+        new_state = State()
+        fs.new(new_state)
+        fs.save()
+        self.assertNotEqual(count, len(fs.all(State)))
+
+    def test_delete_method(self):
+        """Delete methods deletes obj from storage"""
+        from models.state import State
+        from models.engine.file_storage import FileStorage
+        fs = FileStorage()
+        count = len(fs.all(State))
+        new_state = State()
+        fs.new(new_state)
+        fs.save()
+        self.assertNotEqual(count, len(fs.all(State)))
