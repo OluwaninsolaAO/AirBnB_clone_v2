@@ -28,7 +28,6 @@ class DBStorage:
             from models.base_model import Base
             Base.metadata.drop_all(self.__engine)
 
-
     def all(self, cls=None):
         """Queries the current database session (self.__session)
         for all objects depending of the class name (argument cls)"""
@@ -39,7 +38,7 @@ class DBStorage:
         from models.place import Place
         from models.review import Review
 
-        class_list = [State, City, User ] #, Amenity, Place, Review]
+        class_list = [State, City, User]  # , Amenity, Place, Review]
         objs = {}
         if cls is not None:
             for obj in self.__session.query(cls).all():
@@ -47,7 +46,8 @@ class DBStorage:
         else:
             for class_item in class_list:
                 for obj in self.__session.query(class_item).all():
-                    objs.update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
+                    objs.update({obj.to_dict()['__class__']
+                                + '.' + obj.id: obj})
         return objs
 
     def new(self, obj):
