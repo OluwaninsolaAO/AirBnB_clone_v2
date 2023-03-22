@@ -9,7 +9,12 @@ from models.place import place_amenity
 class Amenity(BaseModel, Base):
     """ Amenties Class """
     __tablename__ = 'amenities'
-    name = Column(String(128), nullable=False)
+    import os
+    if os.environ.get('HBNB_TYPE_STORAGE') == 'db':
+        name = Column(String(128), nullable=False)
 
-    place_amenities = relationship("Place", secondary=place_amenity,
-                                   backref="amenities")
+        place_amenities = relationship("Place",
+                                       secondary=place_amenity,
+                                       backref="amenities")
+    else:
+        name = ""
