@@ -39,7 +39,7 @@ class DBStorage:
         from models.place import Place
         from models.review import Review
 
-        class_list = [State, City]  #, User, Amenity, Place, Review]
+        class_list = [State, City, User ] #, Amenity, Place, Review]
         objs = {}
         if cls is not None:
             for obj in self.__session.query(cls).all():
