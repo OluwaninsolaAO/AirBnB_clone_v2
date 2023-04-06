@@ -17,5 +17,8 @@ def do_pack():
     #  create compressed tgz file
     time_stamp = datetime.now().strftime('%Y%m%d%H%M%S')
     path = 'versions/web_static_' + time_stamp + '.tgz'
-    local('tar -cvzf {} web_static/'.format(path))
-    return path
+    result = local('tar -cvzf {} web_static/'.format(path))
+    if result.succeeded:
+        return path
+    else:
+        return None
