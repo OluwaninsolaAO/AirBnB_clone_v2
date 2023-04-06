@@ -32,7 +32,7 @@ EOF
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 
 # give ownership of /data/ to the current user
-chown -R "${USER}":"${USER}" /data/
+chown -R ubuntu:ubuntu /data/
 
 # set up nginx server configuration
 SERVER=$(hostname)
