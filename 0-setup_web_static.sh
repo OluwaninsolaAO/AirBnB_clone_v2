@@ -59,3 +59,5 @@ SERVER_CONFIG=\
 }"
 bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
 /etc/init.d/nginx restart
+
+exit 0
