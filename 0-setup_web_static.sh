@@ -52,7 +52,7 @@ SERVER_CONFIG=\
                 try_files \$uri \$uri/ =404;
         }
 
-	location ~ /hbnb_static(/.*)? {
+	location /hbnb_static {
                 add_header X-Served-By '$SERVER';
 		alias /data/web_static/current/;
 	}
