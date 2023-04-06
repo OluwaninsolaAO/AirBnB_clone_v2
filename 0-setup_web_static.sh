@@ -11,20 +11,12 @@ mkdir -p /data/web_static/releases/test/
 
 # create initial html
 cat << EOF | tee /data/web_static/releases/test/index.html
-<!DOCTYPE html>
 <html>
-<head>
-	<title>Bootstrap Example</title>
-	<!-- Link to Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
-
-	<div class="container">
-		<h1>Welcome to Bootstrap</h1>
-		<p>This is a simple example of a Bootstrap page.</p>
-	</div>
-</body>
+  <head>
+  </head>
+  <body>
+    Holberton School
+  </body>
 </html>
 EOF
 
