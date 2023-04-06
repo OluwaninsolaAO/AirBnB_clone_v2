@@ -46,7 +46,7 @@ SERVER_CONFIG=\
 
 	location /hbnb_static {
                 add_header X-Served-By '$SERVER';
-		alias /data/web_static/current/;
+		alias /data/web_static/current;
 	}
 }"
 bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-available/default"
