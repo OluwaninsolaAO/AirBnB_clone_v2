@@ -49,7 +49,7 @@ SERVER_CONFIG=\
 		alias /data/web_static/current/;
 	}
 }"
-bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-available/default"
 /etc/init.d/nginx restart
 
 exit 0
