@@ -29,8 +29,7 @@ chown -R ubuntu:ubuntu /data/
 # set up nginx server configuration
 SERVER=$(hostname)
 
-SERVER_CONFIG=\
-"server {
+SERVER_CONFIG="server {
         listen 80 default_server;
         listen [::]:80 default_server;
 
