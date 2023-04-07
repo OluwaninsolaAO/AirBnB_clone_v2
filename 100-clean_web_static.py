@@ -63,4 +63,4 @@ def deploy():
 
 def do_clean(number=0):
     """ Deletes out-of-date archives."""
-    pass
+    versions = local('ls -t versions/')
