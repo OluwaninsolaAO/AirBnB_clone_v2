@@ -85,6 +85,7 @@ def do_clean(number=0):
     #  capture list of archives : remote
     archives = run('ls -t /data/web_static/releases')
     archives = archives.split('\n')
+
     archives = archives[int(number):]
 
     if 'test' in archives:
