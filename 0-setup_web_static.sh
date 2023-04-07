@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # sets up your web servers for the deployment of web_static
 
 # Update servers repository and install nginx
