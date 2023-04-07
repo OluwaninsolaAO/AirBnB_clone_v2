@@ -68,18 +68,28 @@ def do_clean(number=0):
     if not os.path.exists('versions/'):
         return
 
-    #  capture list of archives
-    archives = local('ls -t versions/', capture=True)
-    archives = archives.split('\n')
-
     #  resolve least number of archives to keep
     if number == 0:
         number = 1
 
+    #  capture list of archives : local
+    archives = local('ls -t versions/', capture=True)
+    archives = archives.split('\n')
+
     archives = archives[int(number):]
 
-    #  remove archives
+    #  remove local archives
     for archive in archives:
         local('rm versions/{}'.format(archive))
+
+    #  capture list of archives : remote
+    archives = run('ls -t /data/web_static/releases')
+    archives = archives.split('\n')
+    archives = archives[int(number):]
+
+    if 'test' in archives:
+        archives.remove('test')
+
+    for archive in archives:
         run('rm -rf /data/web_static/releases/{}'.format(
-            archive.replace('.tgz', '')))
+            archive))
