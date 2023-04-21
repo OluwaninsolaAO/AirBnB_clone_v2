@@ -8,7 +8,7 @@ import os
 
 class State(BaseModel, Base):
     """ State class """
-    
+
     if os.environ.get('HBNB_TYPE_STORAGE') == 'db':
         __tablename__ = 'states'
         name = Column(String(128), nullable=False)
