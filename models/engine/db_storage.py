@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Defines a new engine that uses SQLAlchemy"""
 import os
 from sqlalchemy import create_engine
