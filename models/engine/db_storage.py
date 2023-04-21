@@ -77,3 +77,8 @@ class DBStorage:
         Base.metadata.create_all(self.__engine)
         Session = sessionmaker(bind=self.__engine, expire_on_commit=False)
         self.__session = scoped_session(Session)
+
+    def close(self):
+        """call reload() method for deserializing the JSON
+        file to objects"""
+        self.__session.remove()

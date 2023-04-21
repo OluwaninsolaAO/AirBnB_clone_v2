@@ -11,6 +11,7 @@ from fabric.api import local, env, run, put
 from datetime import datetime
 import os
 
+
 def do_pack():
     """Compress the contents of web_static"""
 
