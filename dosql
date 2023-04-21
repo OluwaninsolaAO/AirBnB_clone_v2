@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# A simple bash script for running sql script
+# The script takes a positional arguement of the
+# sql file name. This script assumed that mysql is
+# installed on the machine using the authetication
+# method `IDENTIFIED WITH auth_socket`.
+
+if [ $# -eq '1' ]
+then
+	cat $1 | sudo mysql
+elif [ $# -eq '2' ]
+then
+	cat $1 | sudo mysql $2
+fi
