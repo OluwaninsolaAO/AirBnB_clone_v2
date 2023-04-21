@@ -79,6 +79,5 @@ class DBStorage:
         self.__session = scoped_session(Session)
 
     def close(self):
-        """call reload() method for deserializing the JSON
-        file to objects"""
+        """call reload() method for commiting objects to db"""
         self.__session.remove()
