@@ -30,6 +30,7 @@ class HBNBCommand(cmd.Cmd):
         """
         `quit` | `EOF`: command exits the program.
         """
+        storage.save()
         return True
 
     def do_EOF(self, line):
