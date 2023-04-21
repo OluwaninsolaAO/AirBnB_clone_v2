@@ -6,8 +6,6 @@ from models import storage
 
 
 app = Flask(__name__)
-
-
 app.url_map.strict_slashes = False
 
 
@@ -19,8 +17,7 @@ def close_storage(exception=None):
 
 @app.route('/states_list')
 def state_list():
-    """Returns a rendered HTML template containing
-    a list of states."""
+    """Returns a rendered HTML template"""
     from models.state import State
     states = storage.all(State).values()
     return render_template('7-states_list.html', states=states)
