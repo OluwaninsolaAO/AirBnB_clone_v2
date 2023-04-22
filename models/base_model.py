@@ -7,7 +7,10 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, DateTime
 import os
 
-Base = sqlalchemy.orm.declarative_base()
+if os.environ.get('HBNB_TYPE_STORAGE') == 'db':
+    Base = sqlalchemy.orm.declarative_base()
+else:
+    Base = object
 
 
 class BaseModel:
