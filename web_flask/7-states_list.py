@@ -19,11 +19,7 @@ def close_storage(exception=None):
 def state_list():
     """Returns a rendered HTML template"""
     from models.state import State
-    states = storage.all(State)
-    objs = {}
-    for key, value in states.items():
-        objs[value.name + value.id] = value
-    states = dict(sorted(objs.items())).values()
+    states = storage.all(State).values()
     return render_template('7-states_list.html', states=states)
 
 
