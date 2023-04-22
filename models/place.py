@@ -52,13 +52,21 @@ class Place(BaseModel, Base):
         latitude = 0.0
         longitude = 0.0
         amenity_ids = []
-        reviews = []
 
     @property
     def reviews(self):
         """A getter for reviews"""
-        return [review for review in self.reviews if
-                review.place_id == self.id]
+        from models.review import Review
+        from models import storage
+
+        reviews = storage.all(Review)
+        result = []
+
+        for review in reviews.values():
+            if review.place_id == self.id:
+                result.append(review)
+
+        return result
 
     @property
     def amenities(self):
