@@ -64,8 +64,11 @@
             </div>
           </div>
 
-          <div class="user"><strong>Owner:</strong> {{ place.user }}</div>
-          <div class="description">{{ place.description }}</div>
+          <div class="user">
+            <strong>Owner:</strong> {{ place.user.first_name + ' ' +
+            place.user.last_name }}
+          </div>
+          <div class="description">{{ place.description | safe }}</div>
         </article>
         {% endfor %}
       </section>
