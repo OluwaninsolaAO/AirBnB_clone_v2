@@ -17,16 +17,16 @@ class State(BaseModel, Base):
         name = ""
         cities = []
 
-    @property
-    def cities(self):
-        """A getter for the attribute cities"""
-        from models import storage
-        from models.city import City
-        cities = storage.all(City)
-        result = []
+        @property
+        def cities(self):
+            """A getter for the attribute cities"""
+            from models import storage
+            from models.city import City
+            cities = storage.all(City)
+            result = []
 
-        for city in cities.values():
-            if city.state_id == self.id:
-                result.append(city)
+            for city in cities.values():
+                if city.state_id == self.id:
+                    result.append(city)
 
-        return result
+            return result
