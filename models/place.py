@@ -53,30 +53,30 @@ class Place(BaseModel, Base):
         longitude = 0.0
         amenity_ids = []
 
-    @property
-    def reviews(self):
-        """A getter for reviews"""
-        from models.review import Review
-        from models import storage
+        @property
+        def reviews(self):
+            """A getter for reviews"""
+            from models.review import Review
+            from models import storage
 
-        reviews = storage.all(Review)
-        result = []
+            reviews = storage.all(Review)
+            result = []
 
-        for review in reviews.values():
-            if review.place_id == self.id:
-                result.append(review)
+            for review in reviews.values():
+                if review.place_id == self.id:
+                    result.append(review)
 
-        return result
+            return result
 
-    @property
-    def amenities(self):
-        """A getter for amenities"""
-        return self.amenity_ids
+        @property
+        def amenities(self):
+            """A getter for amenities"""
+            return self.amenity_ids
 
-    @amenities.setter
-    def amenities(self, obj):
-        """A setter for amenities"""
-        from models.amenity import Amenity
-        if isinstance(obj, Amenity):
-            if obj.id not in self.amenity_ids:
-                self.amenity_ids.append(obj.id)
+        @amenities.setter
+        def amenities(self, obj):
+            """A setter for amenities"""
+            from models.amenity import Amenity
+            if isinstance(obj, Amenity):
+                if obj.id not in self.amenity_ids:
+                    self.amenity_ids.append(obj.id)
