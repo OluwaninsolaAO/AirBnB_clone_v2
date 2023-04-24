@@ -60,8 +60,8 @@ class FileStorage:
         if `obj` is equal to None, the method should not
         do anything."""
         if obj is not None:
-            del FileStorage.__objects[obj.to_dict()['__class__'] + '.'
-                                      + obj.id]
+            key = obj.to_dict()['__class__'] + '.' + obj.id
+            del FileStorage.__objects[key]
 
     def close(self):
         """call reload() method for deserializing the JSON
