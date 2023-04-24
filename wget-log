@@ -1,0 +1,6 @@
+--2023-04-24 08:44:31--  https://s3.amazonaws.com/alx-intranet.hbtn.io/files/correction_system/290/1631/main_0.py?X-Amz-Algorithm=AWS4-HMAC-SHA256
+Resolving s3.amazonaws.com (s3.amazonaws.com)... 52.216.51.216, 52.217.234.160, 52.217.174.232, ...
+Connecting to s3.amazonaws.com (s3.amazonaws.com)|52.216.51.216|:443... connected.
+HTTP request sent, awaiting response... 400 Bad Request
+2023-04-24 08:44:32 ERROR 400: Bad Request.
+

@@ -19,8 +19,8 @@ class DBStorage:
         env = [os.environ.get(c) for c in credentials]
         e = 'mysql+mysqldb://{}:{}@{}/{}'.format(*env[:])
         self.__engine = create_engine(e, pool_pre_ping=True)
-        Session = sessionmaker(bind=self.__engine)
-        self.__session = Session()
+        # Session = sessionmaker(bind=self.__engine)
+        # self.__session = Session()
 
         #  drop all tables if the environment variable
         #  HBNB_ENV is equal to test
@@ -79,5 +79,5 @@ class DBStorage:
         self.__session = scoped_session(Session)
 
     def close(self):
-        """call reload() method for commiting objects to db"""
-        self.__session.remove()
+        """call close() method for commiting objects to db"""
+        self.__session.close()
